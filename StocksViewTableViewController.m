@@ -17,11 +17,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    stocks=[[NSMutableArray alloc]init];
-    [stocks addObject:@"Google"];
-    [stocks addObject:@"Facebook"];
-    [stocks addObject:@"Twitter"];
-    [stocks addObject:@"Tesla"];
+    stocks = [NSMutableArray array];
+    
+    Stock *stock1=[[Stock alloc]init];
+    stock1.name=@"Google";
+    [stocks addObject:stock1];
+    
+    Stock *stock2=[[Stock alloc]init];
+    stock2.name=@"Facebook";
+    [stocks addObject:stock2];
+    
+    
+    Stock *stock3=[[Stock alloc]init];
+    stock3.name=@"Twitter";
+    [stocks addObject:stock3];
+    
+    Stock *stock4=[[Stock alloc]init];
+    stock4.name=@"Facebook";
+    [stocks addObject:stock4];
+    
+    
+    
+   // [stocks addObject:stock1];    stocks=[[NSMutableArray alloc]init];
+   // [stocks addObject:@"Google"];
+  //  [stocks addObject:@"Facebook"];
+  //  [stocks addObject:@"Twitter"];
+  //  [stocks addObject:@"Tesla"];
+    
     
 
     
@@ -48,13 +70,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainCell" forIndexPath:indexPath];
     
-    cell.textLabel.text= [stocks objectAtIndex:indexPath.row];
+    Stock *stock = stocks [indexPath.row];
     
+    cell.textLabel.text=stock.name;
     
     return cell;
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *stock= stocks[indexPath.row];
+    NSMutableArray *stock= stocks[indexPath.row];
+    
     [self.delegate stocksViewTableViewControllerDataSent:stock];
     
 }

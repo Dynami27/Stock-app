@@ -22,6 +22,7 @@
     [self.delegate stockLabelControllerSendData:self.stockLabel.text];
     return [_stockLabel resignFirstResponder];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

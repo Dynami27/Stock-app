@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
  [super viewDidLoad];
     
-    NSArray *childViewControllers=self.childViewControllers;
+    NSMutableArray *childViewControllers=self.childViewControllers;
     self.stocksViewTableViewController=childViewControllers[0];
     self.stocksViewTableViewController.delegate=self;
     
@@ -30,7 +30,7 @@
 }
 -(void) stocksViewTableViewControllerDataSent:(Stock *)stock {
     
-    self.stockLabelController.stockLabel.text= stock;
+    self.stockLabelController.stockLabel.text= stock.name;
     
 }
 
